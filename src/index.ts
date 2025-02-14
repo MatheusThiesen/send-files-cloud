@@ -38,12 +38,12 @@ async function worker({ filename, queuePosition }: Task) {
 
   const [fileLink] = await Promise.all([
     s3Service.updateFile(
-      `Teste/${removeExtension(filename)}`,
+      `${env.S3_FOLDER}${removeExtension(filename)}`,
       compressFile,
       "images"
     ),
     s3Service.updateFile(
-      `Teste/${removeExtension(filename)}_smaller`,
+      `${env.S3_FOLDER}${removeExtension(filename)}_smaller`,
       compressFileMini,
       "images"
     ),

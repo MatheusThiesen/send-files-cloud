@@ -11,6 +11,7 @@ const envSchema = z.object({
   S3_ACCESS_KEY: z.coerce.string(),
   S3_SECRET_KEY: z.coerce.string(),
   S3_ENDPOINT: z.coerce.string(),
+  S3_FOLDER: z.coerce.string(),
 });
 
 const _env = envSchema.safeParse(process.env);
