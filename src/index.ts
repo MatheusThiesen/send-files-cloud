@@ -52,10 +52,10 @@ async function worker({ filename, queuePosition }: Task) {
   console.log(`${queuePosition} (${fileLink})`);
 }
 
-const queue: queueAsPromised<Task> = fastq.promise(worker, 4);
+const queue: queueAsPromised<Task> = fastq.promise(worker, 6);
 
 async function execute() {
-  const fileList = (await $`ls -1 ${env.PATH_IMAGES}`.text())
+  const fileList = (await $`ls -1t ${env.PATH_IMAGES}`.text())
     .split("\n")
     .filter(Boolean);
 
